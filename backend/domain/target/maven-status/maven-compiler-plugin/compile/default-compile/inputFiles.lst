@@ -1,0 +1,13 @@
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/cart/Cart.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/cart/CartItem.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/cart/Status.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/client/Client.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/payment/BankingDetails.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/restaurant/Location.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/restaurant/Product.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/restaurant/Restaurant.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/shared/Address.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/shared/Country.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/shared/Money.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/user/Role.java
+/home/daycu/Development/ecomeal-web/backend/domain/src/main/java/model/user/UserAccount.java
