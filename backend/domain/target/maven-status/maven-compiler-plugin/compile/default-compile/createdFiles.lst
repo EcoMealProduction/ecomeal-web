@@ -1,0 +1,13 @@
+model/shared/Country.class
+model/restaurant/Product.class
+model/cart/Status.class
+model/cart/Cart.class
+model/user/Role.class
+model/payment/BankingDetails.class
+model/restaurant/Location.class
+model/restaurant/Restaurant.class
+model/shared/Money.class
+model/cart/CartItem.class
+model/shared/Address.class
+model/user/UserAccount.class
+model/client/Client.class

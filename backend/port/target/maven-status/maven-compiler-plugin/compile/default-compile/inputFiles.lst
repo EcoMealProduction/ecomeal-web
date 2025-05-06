@@ -1,0 +1,10 @@
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/in/CartUseCase.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/in/CheckoutUseCase.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/in/ClientUseCase.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/in/ProductUseCase.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/in/RestaurantUseCase.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/out/CartRepository.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/out/CheckoutRepository.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/out/ClientRepository.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/out/ProductRepository.java
+/home/daycu/Development/ecomeal-web/backend/port/src/main/java/out/RestaurantRepository.java
