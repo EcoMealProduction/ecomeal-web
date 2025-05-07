@@ -1,7 +1,7 @@
 package model.restaurant;
 
 /**
- * Custom unchecked exception thrown when an operation involves an invalid product quantity,
+ * Custom unchecked exception thrown when an operation involves an invalid product totalQuantity,
  * such as negative values or quantities exceeding allowed limits.
  */
 public class InvalidQuantityException extends RuntimeException {
