@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ModelCreationTest {
+public class UserAccountCredentialsTest {
 
     @Test
     public void testPasswordCreationThrows() {
