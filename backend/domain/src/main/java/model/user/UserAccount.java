@@ -1,5 +1,7 @@
 package model.user;
 
+import lombok.Builder;
+import lombok.NonNull;
 import model.shared.Email;
 import model.shared.password.Password;
 import model.shared.PhoneNumber;
@@ -12,5 +14,11 @@ import model.shared.PhoneNumber;
  * @param password user's password
  * @param role user's role
  */
-public record UserAccount(Email email, PhoneNumber phoneNumber, Password password, Role role) {
+@Builder(toBuilder = true)
+public record UserAccount(
+        long id,
+        @NonNull Email email,
+        @NonNull PhoneNumber phoneNumber,
+        @NonNull Password password,
+        @NonNull Role role) {
 }

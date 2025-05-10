@@ -1,4 +1,4 @@
-package model.restaurant;
+package model.restaurant.exception;
 
 /**
  * Custom unchecked exception thrown when an operation involves an invalid product totalQuantity,

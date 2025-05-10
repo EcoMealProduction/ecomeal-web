@@ -1,4 +1,14 @@
 package model.payment;
 
-public record BankingDetails() {
+import model.shared.Country;
+
+public record BankingDetails(
+        long id,
+        String name,
+        Country country,
+        // TODO: probably it requires VO extension.
+        String postalCode,
+        String city,
+        String street
+) {
 }

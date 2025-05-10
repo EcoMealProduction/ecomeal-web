@@ -1,8 +1,7 @@
 package restaurant;
 
-import model.restaurant.InvalidQuantityException;
+import model.restaurant.exception.InvalidQuantityException;
 import model.restaurant.Product;
-import model.restaurant.Restaurant;
 import model.shared.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,62 +14,55 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
 
-    private Product jumeri;
     private Currency eur;
+    private Product plashinti;
 
     @BeforeEach
     public void setup() {
         eur = Currency.getInstance("EUR");
         Money bakshish = new Money(eur, new BigDecimal(12));
         OffsetDateTime pickUpTime = OffsetDateTime.now().plusHours(3);
-        Restaurant andys = new Restaurant();
 
-        jumeri = new Product(
-                1L,
-                "Jumeri",
-                "gustoase ca la matta",
-                5, 0,
-                bakshish,
-                pickUpTime,
-                andys);
+        plashinti = Product.builder()
+                .id(1L)
+                .name("Plashinti")
+                .description("gustoase ca la matta")
+                .totalQuantity(10)
+                .price(bakshish)
+                .pickUpTime(pickUpTime)
+                .build();
     }
 
     @Test
     public void testInvalidReservedProduct() {
         InvalidQuantityException exception = assertThrows(InvalidQuantityException.class,
-                () -> jumeri.reserve(6));
+                () -> plashinti.reserve(16));
 
         assertTrue(exception.getMessage().contains("Not enough stock available"));
     }
 
     @Test
     public void testReservedProduct() {
-        Product reservedProduct = jumeri.reserve(5);
+        Product reservedProduct = plashinti.reserve(5);
 
-        assertEquals(5, reservedProduct.reservedQuantity());
+        assertEquals(5, reservedProduct.availableQuantity());
     }
 
     @Test
     public void testInvalidReleasedProduct() {
         InvalidQuantityException exception = assertThrows(InvalidQuantityException.class,
-                () -> jumeri.release(6));
+                () -> plashinti.release(6));
 
         assertTrue(exception.getMessage().contains("Cannot release more than reserved"));
     }
 
     @Test
     public void testReleasedProduct() {
-        Product reservedProduct = jumeri.reserve(5);
+        Product reservedProduct = plashinti.reserve(5);
         Product releasedProduct = reservedProduct.release(4);
 
-        assertEquals(1, releasedProduct.reservedQuantity());
+        assertEquals(9, releasedProduct.availableQuantity());
     }
 
-    @Test
-    public void testProductOriginalPrice() {
-        final Money originalBakshish = new Money(eur, new BigDecimal(24));
-
-        assertEquals(jumeri.originalPrice(), originalBakshish);
-    }
 
 }
