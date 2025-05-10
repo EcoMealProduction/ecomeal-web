@@ -1,4 +1,4 @@
 package model.shared;
 
-public record Address() {
+public record Address(String value) {
 }

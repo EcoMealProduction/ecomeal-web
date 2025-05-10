@@ -1,4 +1,10 @@
 package model.shared;
 
-public record Country() {
+import lombok.NonNull;
+
+import java.util.Locale;
+
+public record Country(
+        @NonNull String name,
+        @NonNull String isoCountryCode) {
 }
