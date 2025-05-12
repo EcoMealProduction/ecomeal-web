@@ -21,8 +21,8 @@ import java.util.List;
 public class Client {
 
     private long id;
-    @NonNull private String first_name;
-    @NonNull private String last_name;
+    @NonNull private String firstName;
+    @NonNull private String lastName;
     @NonNull private UserAccount userAccount;
     @NonNull private Country country;
     @NonNull private Location location;
