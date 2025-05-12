@@ -1,4 +1,4 @@
-package client;
+package model.unit.client;
 
 import model.client.Client;
 import model.payment.BankingDetails;

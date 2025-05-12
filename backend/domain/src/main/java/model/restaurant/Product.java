@@ -20,7 +20,7 @@ public class Product {
     private long id;
     @NonNull private String name;
     private String description;
-    private int totalQuantity;
+    @Getter private int totalQuantity;
     private int reservedQuantity;
     @NonNull @Getter private Money price;
     @NonNull private OffsetDateTime pickUpTime;
@@ -90,4 +90,10 @@ public class Product {
         return this.id != UNSAVED_ID;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Product other)) return false;
+        return this.id == other.id;
+    }
 }

@@ -1,15 +1,7 @@
 package model.cart;
 
-public class NotEnoughProductsInStockException extends Exception {
-
-    private final int productsInStock;
-
-    public NotEnoughProductsInStockException(String message, int productsInStock) {
+public class NotEnoughProductsInStockException extends RuntimeException {
+    public NotEnoughProductsInStockException(String message) {
         super(message);
-        this.productsInStock = productsInStock;
-    }
-
-    public int productsInStock() {
-        return productsInStock;
     }
 }

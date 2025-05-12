@@ -18,9 +18,11 @@ public interface CartUseCase {
      * If the item already exists, its quantity is incremented by one.
      *
      * @param clientId ID of the client performing the action
+     * @param productId ID of the product to be added
+     * @param quantity the number of units to be added
      * @return the updated Cart instance
      */
-    Cart addItemToCart(long clientId);
+    Cart addItemToCart(long clientId, long productId, int quantity);
 
     /**
      * Removes a given quantity of a product from the client's cart.
