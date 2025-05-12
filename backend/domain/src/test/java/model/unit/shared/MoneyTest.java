@@ -1,4 +1,4 @@
-package shared;
+package model.unit.shared;
 
 import model.shared.Money;
 import org.assertj.core.api.ThrowableAssert;
@@ -9,8 +9,8 @@ import java.math.BigInteger;
 import java.util.Currency;
 
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
-import static shared.MoneyFactoryTest.euros;
-import static shared.MoneyFactoryTest.usDollars;
+import static model.unit.shared.MoneyFactoryTest.euros;
+import static model.unit.shared.MoneyFactoryTest.usDollars;
 
 public class MoneyTest {
 

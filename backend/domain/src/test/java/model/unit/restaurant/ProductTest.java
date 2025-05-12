@@ -1,4 +1,4 @@
-package restaurant;
+package model.unit.restaurant;
 
 import model.restaurant.exception.InvalidQuantityException;
 import model.restaurant.Product;

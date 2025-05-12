@@ -1,3 +1,5 @@
+package model.unit.shared;
+
 import model.shared.Email;
 import model.shared.PhoneNumber;
 import model.shared.password.Password;
