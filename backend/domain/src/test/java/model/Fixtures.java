@@ -5,6 +5,7 @@ import model.client.Client;
 import model.payment.BankingDetails;
 import model.restaurant.Location;
 import model.restaurant.Product;
+import model.restaurant.Restaurant;
 import model.shared.*;
 import model.shared.password.Password;
 import model.user.Role;
@@ -43,6 +44,15 @@ public final class Fixtures {
     public static final Location albertHeijn = new Location(
             albertHeijnAddress, albertHeijnLatitude, albertHeijnLongitude);
 
+    public static final UserAccount restaurantUserAccount = new UserAccount(1L, email, phoneNumber, password, Role.RESTAURANT);
+    public static final Restaurant andys = Restaurant.builder()
+            .id(1L)
+            .userAccount(restaurantUserAccount)
+            .name("Andys")
+            .location(aachenerNobis)
+            .bankingDetails(bankingDetails)
+            .build();
+
     public static final Currency eur = Currency.getInstance("EUR");
     public static final Money bakshish = new Money(eur, new BigDecimal(12));
     public static final OffsetDateTime pickUpTime = OffsetDateTime.now().plusHours(3);
@@ -52,6 +62,7 @@ public final class Fixtures {
             .name("Plashinti")
             .description("gustoase ca la matta")
             .totalQuantity(10)
+            .restaurant(andys)
             .price(bakshish)
             .pickUpTime(pickUpTime)
             .build();
@@ -61,6 +72,7 @@ public final class Fixtures {
             .name("Jumeri")
             .description("gustoase ca la tattu")
             .totalQuantity(10)
+            .restaurant(andys)
             .price(bakshish)
             .pickUpTime(pickUpTime)
             .build();
@@ -70,6 +82,7 @@ public final class Fixtures {
             .name("Chifla")
             .description("moale ca bunicta")
             .totalQuantity(15)
+            .restaurant(andys)
             .price(bakshish)
             .pickUpTime(pickUpTime)
             .build();
