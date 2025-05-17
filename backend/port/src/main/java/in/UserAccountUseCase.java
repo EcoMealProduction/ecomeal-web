@@ -14,6 +14,14 @@ import model.user.UserAccount;
 public interface UserAccountUseCase {
 
     /**
+     * Retrieves a user account by its unique identifier.
+     *
+     * @param userAccountId the ID of the user account to retrieve
+     * @return the matching {@link UserAccount}, or throws an exception if not found
+     */
+    UserAccount findById(long userAccountId);
+
+    /**
      * Retrieves a user account based on the given email address.
      * Used primarily during authentication or profile lookup.
      *
@@ -38,16 +46,16 @@ public interface UserAccountUseCase {
      * @param userAccountId the ID of the user account to update
      * @param newEmail the new email address to assign
      */
-    void updateEmail(long userAccountId, Email newEmail);
+    UserAccount updateEmail(long userAccountId, Email newEmail);
 
     /**
      * Updates the phone number associated with a user account.
      * Can be used to update contact info or enable multi-factor authentication.
      *
      * @param userAccountId the ID of the user account to update
-     * @param phoneNumber the new phone number to assign
+     * @param newPhoneNumber the new phone number to assign
      */
-    void updatePhoneNumber(long userAccountId, PhoneNumber phoneNumber);
+    UserAccount updatePhoneNumber(long userAccountId, PhoneNumber newPhoneNumber);
 
     /**
      * Changes the password for the specified user account.
@@ -56,13 +64,5 @@ public interface UserAccountUseCase {
      * @param userAccountId the ID of the user account
      * @param newPassword the new password to set (should be pre-validated/hashed)
      */
-    void changePassword(long userAccountId, Password newPassword);
-
-    /**
-     * Registers a new user account in the system.
-     * May involve checking for existing email, validating credentials, and persisting the new account.
-     *
-     * @param userAccount the new account to register
-     */
-    void register(UserAccount userAccount);
+    UserAccount changePassword(long userAccountId, Password newPassword);
 }
