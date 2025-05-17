@@ -50,7 +50,7 @@ public record Cart(
      */
     public Money totalPrice() {
         return cartItems.stream()
-                .map(item -> item.product().getPrice().multiply(item.quantity()))
+                .map(item -> item.product().price().multiply(item.quantity()))
                 .reduce(Money::add)
                 .orElseThrow(() -> new IllegalStateException("Cart is empty"));
     }

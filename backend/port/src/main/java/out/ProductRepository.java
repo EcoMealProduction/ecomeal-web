@@ -1,6 +1,7 @@
 package out;
 
 import model.restaurant.Product;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,4 +45,13 @@ public interface ProductRepository {
      * @param productId the product by id to delete
      */
     void deleteById(long productId);
+
+    /**
+     * Retrieves a paginated list of products that are available for reservation or purchase.
+     * Availability is typically defined by having remaining unreserved quantity and a future pickup time.
+     *
+     * @param pageRequest the pagination and sorting configuration
+     * @return a list of available products for the given page
+     */
+    List<Product> findAvailableProducts(PageRequest pageRequest);
 }

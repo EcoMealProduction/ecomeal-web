@@ -1,6 +1,5 @@
 package model.client;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 import model.payment.BankingDetails;
@@ -16,18 +15,17 @@ import java.util.List;
  * Each client is associated with a user account, personal details, and geolocation data,
  * and has a defined maximum pickup radius used for filtering nearby restaurants.
  */
-@Builder(toBuilder = true)
-@AllArgsConstructor
-public class Client {
 
-    private long id;
-    @NonNull private String firstName;
-    @NonNull private String lastName;
-    @NonNull private UserAccount userAccount;
-    @NonNull private Country country;
-    @NonNull private Location location;
-    @NonNull private BankingDetails bankingDetails;
-    private double pickUpRadiusKm;
+@Builder(toBuilder = true)
+public record Client(
+        long id,
+        @NonNull String firstName,
+        @NonNull String lastName,
+        @NonNull UserAccount userAccount,
+        @NonNull Country country,
+        Location location,
+        @NonNull BankingDetails bankingDetails,
+        double pickUpRadiusKm) {
 
     /**
      * Default constructor enforcing domain constraint on pickup radius.
@@ -35,7 +33,7 @@ public class Client {
      *
      * @throws PickUpRadiusOutOfRanceException if radius is outside the allowed bounds
      */
-    public Client() {
+    public Client {
         if (pickUpRadiusKm < 0 || pickUpRadiusKm > 100)
             throw new PickUpRadiusOutOfRanceException("Pickup radius must be between 0 and 100 km.");
     }

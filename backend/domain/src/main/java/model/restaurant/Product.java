@@ -1,8 +1,6 @@
 package model.restaurant;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
 import lombok.NonNull;
 import model.restaurant.exception.InvalidQuantityException;
 import model.shared.Money;
@@ -14,28 +12,28 @@ import java.time.OffsetDateTime;
  * Maintains reservation state and enforces constraints on stock operations and product validity.
  */
 @Builder(toBuilder = true)
-@AllArgsConstructor
-public class Product {
-
-    private long id;
-    @NonNull private String name;
-    private String description;
-    @Getter private int totalQuantity;
-    private int reservedQuantity;
-    @NonNull @Getter private Money price;
-    @NonNull private OffsetDateTime pickUpTime;
+public record Product(
+        long id,
+        @NonNull String name,
+        @NonNull String description,
+        int totalQuantity,
+        int reservedQuantity,
+        Restaurant restaurant,
+        @NonNull Money price,
+        @NonNull OffsetDateTime pickUpTime) {
 
     /**
      * Sentinel value indicating non-persisted product
      */
     public static final long UNSAVED_ID = -1;
 
-    public Product() {
-        if (this.totalQuantity < 0)
+    public Product {
+        if (totalQuantity < 0)
             throw new IllegalArgumentException("totalQuantity cannot be negative");
 
-        if (this.reservedQuantity < 0 || this.reservedQuantity > this.totalQuantity)
+        if (reservedQuantity < 0 || reservedQuantity > totalQuantity)
             throw new IllegalArgumentException("reservedQuantity is invalid");
+
     }
 
     /**
@@ -63,7 +61,7 @@ public class Product {
                 .build();
     }
 
-    public Product release(int quantity) {
+    public Product reduce(int quantity) {
         if (quantity <= 0 || quantity > reservedQuantity)
             throw new InvalidQuantityException("Cannot release more than reserved.");
 

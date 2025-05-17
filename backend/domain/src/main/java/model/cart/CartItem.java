@@ -17,10 +17,13 @@ public record CartItem(Product product, int quantity) {
      * @throws NotEnoughProductsInStockException if requested quantity exceeds available stock
      */
     public CartItem {
+        if (quantity < product.reservedQuantity())
+            throw new IllegalArgumentException("Given quantity mismatches the product reserved quantity.");
+
         if (quantity <= 0)
             throw new IllegalArgumentException("Quantity must be positive.");
 
-        if (quantity > product.getTotalQuantity())
+        if (quantity > product.totalQuantity())
             throw new NotEnoughProductsInStockException("Not enough products in stock.");
     }
 
@@ -50,7 +53,7 @@ public record CartItem(Product product, int quantity) {
         if (quantityToRemove <= 0) throw new IllegalArgumentException("Quantity to remove must be positive.");
         if (quantityToRemove > quantity) throw new IllegalArgumentException("Cannot remove more than current quantity.");
 
-        final Product updatedProduct = product.release(quantityToRemove);
+        final Product updatedProduct = product.reduce(quantityToRemove);
         final int newQuantity = quantity - quantityToRemove;
 
         return new CartItem(updatedProduct, newQuantity);

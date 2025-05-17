@@ -31,22 +31,30 @@ public interface CartUseCase {
      *
      * @param clientId ID of the client performing the action
      * @param productId ID of the product to remove
-     * @param quantity the number of units to remove
      * @return the updated Cart instance
      */
-    Cart removeItemFromCart(long clientId, long productId, int quantity);
+    Cart removeItemFromCart(long clientId, long productId);
 
     /**
-     * Updates the quantity of a specific product in the cart to the specified value.
-     * If the quantity is zero, the item is removed.
-     * May trigger validation against available stock or product constraints.
+     * Decreases the quantity of a specific product in the client's cart.
+     * If the quantity becomes zero, the product is removed.
      *
-     * @param clientId ID of the client performing the update
-     * @param productId ID of the product to modify
-     * @param newQuantity the new quantity to set
-     * @return the updated Cart instance
+     * @param clientId the ID of the client
+     * @param productId the product whose quantity is being decreased
+     * @param quantity the updated quantity (must be less than current)
+     * @return the updated {@link Cart} instance
      */
-    Cart updateItemQuantity(long clientId, long productId, int newQuantity);
+    Cart decreaseItemQuantity(long clientId, long productId, int quantity);
+
+    /**
+     * Increases the quantity of a specific product in the client's cart.
+     *
+     * @param clientId the ID of the client
+     * @param productId the product whose quantity is being increased
+     * @param quantity the updated quantity (must be greater than current)
+     * @return the updated {@link Cart} instance
+     */
+    Cart increaseItemQuantity(long clientId, long productId, int quantity);
 
     /**
      * Retrieves the client's current cart.
@@ -62,8 +70,9 @@ public interface CartUseCase {
      * All reserved quantities are released and the cart is reset.
      *
      * @param clientId ID of the client performing the action
+     * @return the clean Cart instance
      */
-    void clearCart(long clientId);
+    Cart clearCart(long clientId);
 
     /**
      * Scheduled or manual task to expire carts that have been inactive beyond a defined timeout threshold.

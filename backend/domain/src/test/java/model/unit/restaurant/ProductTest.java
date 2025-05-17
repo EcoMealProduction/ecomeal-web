@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.Currency;
 
+import static model.Fixtures.andys;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductTest {
@@ -28,6 +29,7 @@ public class ProductTest {
                 .name("Plashinti")
                 .description("gustoase ca la matta")
                 .totalQuantity(10)
+                .restaurant(andys)
                 .price(bakshish)
                 .pickUpTime(pickUpTime)
                 .build();
@@ -51,7 +53,7 @@ public class ProductTest {
     @Test
     public void testInvalidReleasedProduct() {
         InvalidQuantityException exception = assertThrows(InvalidQuantityException.class,
-                () -> plashinti.release(6));
+                () -> plashinti.reduce(6));
 
         assertTrue(exception.getMessage().contains("Cannot release more than reserved"));
     }
@@ -59,7 +61,7 @@ public class ProductTest {
     @Test
     public void testReleasedProduct() {
         Product reservedProduct = plashinti.reserve(5);
-        Product releasedProduct = reservedProduct.release(4);
+        Product releasedProduct = reservedProduct.reduce(4);
 
         assertEquals(9, releasedProduct.availableQuantity());
     }
