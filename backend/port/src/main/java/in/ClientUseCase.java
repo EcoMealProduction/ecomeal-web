@@ -25,7 +25,7 @@ public interface ClientUseCase {
      * @param clientId the ID of the client
      * @return an Optional containing the client if found, or empty if not
      */
-    Optional<Client> findClientById(long clientId);
+    Client findClientById(long clientId);
 
     /**
      * Registers a new client in the system.
