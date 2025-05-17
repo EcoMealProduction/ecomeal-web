@@ -23,7 +23,7 @@ public interface RestaurantUseCase {
      * @param restaurantId the ID of the restaurant to look up
      * @return an Optional containing the restaurant if found, or empty if not found
      */
-    Optional<Restaurant> findRestaurantById(long restaurantId);
+    Restaurant findRestaurantById(long restaurantId);
 
     /**
      * Creates a new restaurant entry in the system.
