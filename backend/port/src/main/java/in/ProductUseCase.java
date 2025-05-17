@@ -3,7 +3,6 @@ package in;
 import model.restaurant.Product;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Primary port interface for managing product-related use cases.
@@ -18,7 +17,15 @@ public interface ProductUseCase {
      * @param productId the ID of the product to retrieve
      * @return the product instance
      */
-    Optional<Product> findById(long productId);
+    Product findById(long productId);
+
+    /**
+     * Retrieves available products by page number.
+     *
+     * @param page the page number
+     * @return the list of products on the required page
+     */
+    List<Product> findAvailableProducts(int page);
 
     /**
      * Retrieves all products belonging to a specific restaurant.
@@ -40,7 +47,7 @@ public interface ProductUseCase {
 
     /**
      * Updates an existing product by its ID.
-     * Typically includes changes to fields like quantity, price, or pickup time.
+     * Typically, includes changes to fields like quantity, price, or pickup time.
      *
      * @param productId the ID of the product to update
      * @return the updated product instance
@@ -63,5 +70,15 @@ public interface ProductUseCase {
      * @param productId the ID of the product to modify
      * @param quantity the amount to subtract from the product's total quantity
      */
-    void reduceQuantity(long productId, int quantity);
+    Product reduceQuantity(long productId, int quantity);
+
+    /**
+     * Increase the quantity of a product by the specified amount.
+     * This is used after successful cart operations or reservations.
+     * Enforces validation to prevent reducing below zero.
+     *
+     * @param productId the ID of the product to modify
+     * @param quantity the amount to add from the product's total quantity
+     */
+    Product reserveQuantity(long productId, int quantity);
 }
