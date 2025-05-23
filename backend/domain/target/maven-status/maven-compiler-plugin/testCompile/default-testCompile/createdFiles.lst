@@ -1,0 +1,9 @@
+model/unit/client/ClientTest.class
+model/unit/cart/CartItemTest.class
+model/unit/cart/CartTest.class
+model/unit/restaurant/LocationTest.class
+model/unit/shared/MoneyFactoryTest.class
+model/unit/restaurant/ProductTest.class
+model/unit/shared/MoneyTest.class
+model/Fixtures.class
+model/unit/shared/UserAccountCredentialsTest.class

@@ -1,0 +1,5 @@
+service/UserAccountServiceTest.class
+service/Fixtures.class
+service/ClientServiceTest.class
+service/CartServiceTest.class
+service/ProductServiceTest.class

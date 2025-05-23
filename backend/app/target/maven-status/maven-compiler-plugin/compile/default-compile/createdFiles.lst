@@ -3,3 +3,4 @@ service/RestaurantService.class
 service/CartService.class
 service/CheckoutService.class
 service/ClientService.class
+service/UserAccountService.class
