@@ -4,6 +4,7 @@ import in.ProductUseCase;
 import lombok.AllArgsConstructor;
 import model.restaurant.Product;
 import model.restaurant.Restaurant;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,8 +46,7 @@ public class ProductService implements ProductUseCase {
      * @return a list of available products on the requested page
      */
     @Override
-    public List<Product> findAvailableProducts(int page) {
-        final int size = 10;
+    public Page<Product> findAvailableProducts(int page, int size) {
         return productRepository.findAvailableProducts(PageRequest.of(page, size));
     }
 

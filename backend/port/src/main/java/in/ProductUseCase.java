@@ -1,6 +1,7 @@
 package in;
 
 import model.restaurant.Product;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public interface ProductUseCase {
      * @param page the page number
      * @return the list of products on the required page
      */
-    List<Product> findAvailableProducts(int page);
+    Page<Product> findAvailableProducts(int page, int size);
 
     /**
      * Retrieves all products belonging to a specific restaurant.

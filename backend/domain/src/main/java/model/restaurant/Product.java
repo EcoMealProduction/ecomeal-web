@@ -1,5 +1,6 @@
 package model.restaurant;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 import model.restaurant.exception.InvalidQuantityException;
