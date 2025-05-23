@@ -1,6 +1,7 @@
 package out;
 
 import model.restaurant.Product;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
@@ -53,5 +54,5 @@ public interface ProductRepository {
      * @param pageRequest the pagination and sorting configuration
      * @return a list of available products for the given page
      */
-    List<Product> findAvailableProducts(PageRequest pageRequest);
+    Page<Product> findAvailableProducts(PageRequest pageRequest);
 }

@@ -6,7 +6,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import out.ProductRepository;
 import out.RestaurantRepository;
 
@@ -39,14 +42,17 @@ public class ProductServiceTest {
         final int page = 1;
         final int size = 10;
         List<Product> expectedProducts = List.of(placinte, jumeri);
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Product> pageProducts = new PageImpl<>(expectedProducts, pageable, expectedProducts.size());
 
-        when(productRepository.findAvailableProducts(PageRequest.of(page, size))).thenReturn(expectedProducts);
+        when(productRepository.findAvailableProducts(PageRequest.of(page, size))).thenReturn(pageProducts);
 
-        List<Product> products = productService.findAvailableProducts(page);
+        Page<Product> products = productService.findAvailableProducts(page, size);
 
         verify(productRepository, times(1)).findAvailableProducts(PageRequest.of(page, size));
 
-        assertEquals(expectedProducts.size(), products.size());
+        assertEquals(expectedProducts.size(), products.getNumberOfElements());
+        assertEquals(expectedProducts, products.stream().toList());
     }
 
     @Test
@@ -122,15 +128,14 @@ public class ProductServiceTest {
 
     @Test
     public void testReserveProductQuantity() {
-        Product expectedReservedProduct = placinte.reserve(3);
         when(productRepository.findById(placinte.id())).thenReturn(Optional.of(placinte));
-        when(productRepository.save(expectedReservedProduct)).thenReturn(expectedReservedProduct);
+        when(productRepository.save(reservedPlacinte)).thenReturn(reservedPlacinte);
 
         Product reservedProduct = productService.reserveQuantity(placinte.id(), 3);
 
         verify(productRepository).findById(placinte.id());
-        verify(productRepository).save(expectedReservedProduct);
+        verify(productRepository).save(reservedPlacinte);
 
-        assertEquals(expectedReservedProduct, reservedProduct);
+        assertEquals(reservedPlacinte, reservedProduct);
     }
 }
