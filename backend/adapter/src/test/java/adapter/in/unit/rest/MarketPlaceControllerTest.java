@@ -1,4 +1,4 @@
-package in.unit.rest;
+package adapter.in.unit.rest;
 
 import in.dto.restaurant.ProductDto;
 import in.mapper.ProductMapperImpl;
@@ -8,9 +8,7 @@ import model.restaurant.Product;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +21,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import service.ProductService;
 
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
-import static service.Fixtures.*;
+import static adapter.Fixtures.*;
 
 @ContextConfiguration(classes = {ProductMapperImpl.class, UserMapperImpl.class})
 @ExtendWith(MockitoExtension.class)
@@ -73,7 +71,7 @@ public class MarketPlaceControllerTest {
         assertEquals(jumeriDto, jumeriResponse);
         assertEquals("La Placinte", placinteResponse.restaurantDto().name());
         assertEquals("placinte", placinteResponse.name());
-        assertEquals(OffsetDateTime.now().plusHours(3).getHour(), placinteResponse.pickUpTime().getHour());
+        assertEquals(OffsetTime.now().plusHours(3).getHour(), placinteResponse.pickUpTime().getHour());
         assertEquals("bl. Dacia 111", placinteDto.restaurantDto().locationDto().addressDto().value());
         assertEquals(2, response.getBody().size());
     }

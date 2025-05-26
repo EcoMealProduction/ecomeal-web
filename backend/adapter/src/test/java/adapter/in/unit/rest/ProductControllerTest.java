@@ -1,4 +1,4 @@
-package in.unit.rest;
+package adapter.in.unit.rest;
 
 import in.dto.restaurant.ProductDto;
 import in.mapper.ProductMapperImpl;
@@ -14,14 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
-import out.RestaurantRepository;
 import service.ProductService;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
-import static service.Fixtures.*;
+import static adapter.Fixtures.*;
 
 @ContextConfiguration(classes = {ProductMapperImpl.class, UserMapperImpl.class})
 @ExtendWith(MockitoExtension.class)

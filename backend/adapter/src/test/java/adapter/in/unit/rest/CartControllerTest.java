@@ -1,4 +1,4 @@
-package in.unit.rest;
+package adapter.in.unit.rest;
 
 
 import in.dto.cart.CartDto;
@@ -21,7 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
-import static service.Fixtures.*;
+import static adapter.Fixtures.*;
 
 @ContextConfiguration(classes = {CartMapperImpl.class})
 @ExtendWith(MockitoExtension.class)

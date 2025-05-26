@@ -1,4 +1,4 @@
-package in.unit.rest;
+package adapter.in.unit.rest;
 
 import in.dto.client.ClientDto;
 import in.mapper.UserMapperImpl;
@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
-import static service.Fixtures.vanea;
+import static adapter.Fixtures.vanea;
 
 @ContextConfiguration(classes = {UserMapperImpl.class})
 @ExtendWith(MockitoExtension.class)
