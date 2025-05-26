@@ -22,7 +22,7 @@ public record Client(
         @NonNull String firstName,
         @NonNull String lastName,
         @NonNull UserAccount userAccount,
-        @NonNull Country country,
+        Country country,
         Location location,
         @NonNull BankingDetails bankingDetails,
         double pickUpRadiusKm) {

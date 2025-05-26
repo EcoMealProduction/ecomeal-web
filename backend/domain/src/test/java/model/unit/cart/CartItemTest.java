@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.util.Currency;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +22,7 @@ public class CartItemTest {
     public void setup() {
         eur = Currency.getInstance("EUR");
         Money bakshish = new Money(eur, new BigDecimal(12));
-        OffsetDateTime pickUpTime = OffsetDateTime.now().plusHours(3);
+        OffsetTime pickUpTime = OffsetTime.now();
 
         plashinti = Product.builder()
                 .id(1L)

@@ -12,7 +12,7 @@ import model.user.Role;
 import model.user.UserAccount;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.util.Currency;
 
 public final class Fixtures {
@@ -55,7 +55,7 @@ public final class Fixtures {
 
     public static final Currency eur = Currency.getInstance("EUR");
     public static final Money bakshish = new Money(eur, new BigDecimal(12));
-    public static final OffsetDateTime pickUpTime = OffsetDateTime.now().plusHours(3);
+    public static final OffsetTime pickUpTime = OffsetTime.now();
 
     public static final Product plashinti = Product.builder()
             .id(1L)

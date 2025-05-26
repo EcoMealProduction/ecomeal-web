@@ -1,8 +1,8 @@
 package in.dto.client;
 
 import in.dto.payment.BankingDetailsDto;
-import in.dto.restaurant.LocationDto;
 import in.dto.shared.CountryDto;
+import in.dto.shared.LocationDto;
 import in.dto.user.UserAccountDto;
 import lombok.Builder;
 import lombok.NonNull;
