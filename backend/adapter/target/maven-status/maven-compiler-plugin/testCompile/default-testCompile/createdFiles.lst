@@ -1,0 +1,8 @@
+in/unit/rest/ProductControllerTest.class
+service/Fixtures.class
+in/unit/rest/CartControllerTest.class
+in/unit/mapper/CartMapperTest.class
+in/unit/rest/ClientControllerTest.class
+in/unit/mapper/UserMapperTest.class
+in/unit/rest/MarketPlaceControllerTest.class
+in/unit/mapper/ProductMapperTest.class

@@ -1,9 +1,9 @@
 package in.mapper;
 
 import in.dto.client.ClientDto;
-import in.dto.restaurant.LocationDto;
 import in.dto.restaurant.RestaurantDto;
 import in.dto.shared.AddressDto;
+import in.dto.shared.LocationDto;
 import in.dto.user.UserAccountDto;
 import model.client.Client;
 import model.restaurant.Location;

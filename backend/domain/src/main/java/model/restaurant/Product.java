@@ -1,12 +1,11 @@
 package model.restaurant;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 import model.restaurant.exception.InvalidQuantityException;
 import model.shared.Money;
 
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 
 /**
  * Represents a surplus product listed by a restaurant, with inventory management capabilities.
@@ -21,7 +20,7 @@ public record Product(
         int reservedQuantity,
         Restaurant restaurant,
         @NonNull Money price,
-        @NonNull OffsetDateTime pickUpTime) {
+        @NonNull OffsetTime pickUpTime) {
 
     /**
      * Sentinel value indicating non-persisted product

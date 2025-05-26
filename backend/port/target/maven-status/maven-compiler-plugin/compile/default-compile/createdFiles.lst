@@ -1,10 +1,11 @@
 in/ClientUseCase.class
 in/CheckoutUseCase.class
 in/RestaurantUseCase.class
+in/UserAccountUseCase.class
 out/ClientRepository.class
 in/CartUseCase.class
+out/UserAccountRepository.class
 out/ProductRepository.class
 out/RestaurantRepository.class
 in/ProductUseCase.class
-out/CheckoutRepository.class
 out/CartRepository.class

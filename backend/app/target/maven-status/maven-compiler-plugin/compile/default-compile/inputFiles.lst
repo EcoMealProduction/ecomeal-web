@@ -3,3 +3,4 @@
 /home/daycu/Development/ecomeal-web/backend/app/src/main/java/service/ClientService.java
 /home/daycu/Development/ecomeal-web/backend/app/src/main/java/service/ProductService.java
 /home/daycu/Development/ecomeal-web/backend/app/src/main/java/service/RestaurantService.java
+/home/daycu/Development/ecomeal-web/backend/app/src/main/java/service/UserAccountService.java

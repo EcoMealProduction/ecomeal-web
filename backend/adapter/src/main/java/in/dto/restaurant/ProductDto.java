@@ -4,7 +4,7 @@ import in.dto.shared.MoneyDto;
 import lombok.Builder;
 import lombok.NonNull;
 
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 
 /**
  * Data transfer object representing a surplus product offered by a restaurant.
@@ -26,5 +26,5 @@ public record ProductDto(
         int reservedQuantity,
         RestaurantDto restaurantDto,
         @NonNull MoneyDto price,
-        @NonNull OffsetDateTime pickUpTime) {
+        @NonNull OffsetTime pickUpTime) {
 }

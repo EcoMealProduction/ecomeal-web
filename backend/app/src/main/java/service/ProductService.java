@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import out.ProductRepository;
 import out.RestaurantRepository;
 
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.util.List;
 
 /**
@@ -80,7 +80,7 @@ public class ProductService implements ProductUseCase {
                 .restaurant(restaurant)
                 .build();
 
-        if (product.pickUpTime().isBefore(OffsetDateTime.now()))
+        if (product.pickUpTime().isBefore(OffsetTime.now()))
             throw new IllegalArgumentException("Pickup time must be in the future.");
 
         return productRepository.save(productWithRestaurant);
@@ -100,7 +100,7 @@ public class ProductService implements ProductUseCase {
     public Product updateProduct(long productId, Product product) {
         Product existingProduct = findById(productId);
 
-        if (product.pickUpTime().isBefore(OffsetDateTime.now()))
+        if (product.pickUpTime().isBefore(OffsetTime.now()))
             throw new IllegalArgumentException("Pickup time must be in the future.");
 
         Product updatedProduct = existingProduct.toBuilder()

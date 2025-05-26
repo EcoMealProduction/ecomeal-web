@@ -14,7 +14,7 @@ import model.user.Role;
 import model.user.UserAccount;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.OffsetTime;
 import java.util.Currency;
 import java.util.List;
 
@@ -29,7 +29,7 @@ public final class Fixtures {
      */
     public static final Currency mdl = Currency.getInstance("MDL");
     public static final Money lei = new Money(mdl, new BigDecimal(12));
-    public static final OffsetDateTime pickUpTime = OffsetDateTime.now().plusHours(3);
+    public static final OffsetTime pickUpTime = OffsetTime.now().plusHours(3);;
 
     /**
      * Client personal data
