@@ -1,4 +1,4 @@
-package in.unit.mapper;
+package adapter.in.unit.mapper;
 
 import in.dto.restaurant.ProductDto;
 import in.mapper.ProductMapper;
@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static service.Fixtures.placinte;
+import static adapter.Fixtures.placinte;
 
 @ContextConfiguration(classes = {ProductMapperImpl.class, UserMapperImpl.class})
 @ExtendWith(SpringExtension.class)
