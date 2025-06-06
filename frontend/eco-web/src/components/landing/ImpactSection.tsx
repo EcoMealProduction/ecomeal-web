@@ -52,7 +52,7 @@ export const ImpactSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
-              <CardContent className="p-8 text-center">
+              <CardContent className="p-8 text-center text-white">
                 <div className="text-4xl mb-4">{stat.icon}</div>
                 <div className="text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
                 <div className="text-lg font-semibold mb-2">{stat.label}</div>
