@@ -10,9 +10,12 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">
-            <div className="text-2xl font-bold text-green-400 mb-4">
-              🌱 EcoMeal
-            </div>
+            <div className="flex items-center">
+                        <Link to="/" className="flex items-center gap-2">
+                          <img src="/ecomeal.PNG" alt="ecomeal-logo" className="w-12 h-12 object-contain" />
+                          <h1 className="text-2xl font-bold text-green-500">ecomeal</h1>
+                        </Link>
+                      </div>
             <p className="text-gray-400 mb-6">
               Fighting food waste, one meal at a time. Join our community in building a more sustainable future.
             </p>
@@ -65,13 +68,13 @@ export const Footer = () => {
 
         <Separator className="my-8 bg-gray-800" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-center items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2024 EcoMeal. All rights reserved. Made with ❤️ in Chisinau.
+            © 2025 EcoMeal. All rights reserved. Made with ❤️ in Chisinau.
           </div>
-          <div className="text-gray-400 text-sm">
+          {/* <div className="text-gray-400 text-sm">
             Available in Romanian, Russian & English
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

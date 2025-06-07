@@ -2,68 +2,22 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import tucano from '@/assets/partners/tucanocoffee.png'
+import fivetogo from '@/assets/partners/5togo.png' 
 
 const partners = [
   {
-    name: 'Bella Vista Bakery',
-    type: 'Bakery',
-    location: 'Bucharest Center',
+    logo: tucano,
+    name: 'Tucano Coffee',
     rating: 4.8,
-    image: 'photo-1555507036-ab794f4aacd3',
-    specialties: ['Fresh Bread', 'Pastries', 'Croissants'],
-    partnerId: 'bella-vista',
-    offerId: '1'
+    specialties: ['Coffee']
   },
   {
-    name: 'Green Garden Cafe',
-    type: 'Cafe',
-    location: 'Herastrau Park',
-    rating: 4.9,
-    image: 'photo-1554118811-1e0d58224f24',
-    specialties: ['Coffee', 'Sandwiches', 'Salads'],
-    partnerId: 'green-garden',
-    offerId: '2'
+    logo: fivetogo,
+    name: '5 To Go',
+    rating: 4.5,
+    specialties: ['Coffee']
   },
-  {
-    name: 'Metro Fresh Market',
-    type: 'Supermarket',
-    location: 'Multiple Locations',
-    rating: 4.6,
-    image: 'photo-1578662996442-48f60103fc96',
-    specialties: ['Fresh Produce', 'Ready Meals', 'Dairy'],
-    partnerId: 'metro-fresh',
-    offerId: '3'
-  },
-  {
-    name: 'Pasta & More',
-    type: 'Restaurant',
-    location: 'Old Town',
-    rating: 4.7,
-    image: 'photo-1555396273-367ea4eb4db5',
-    specialties: ['Italian Food', 'Fresh Pasta', 'Pizza'],
-    partnerId: 'pasta-more',
-    offerId: '4'
-  },
-  {
-    name: 'Sweet Dreams Patisserie',
-    type: 'Patisserie',
-    location: 'Calea Victoriei',
-    rating: 4.9,
-    image: 'photo-1578985545062-69928b1d9587',
-    specialties: ['Cakes', 'Macarons', 'Desserts'],
-    partnerId: 'sweet-dreams',
-    offerId: '5'
-  },
-  {
-    name: 'Farm to Table',
-    type: 'Organic Market',
-    location: 'Floreasca',
-    rating: 4.8,
-    image: 'photo-1542838132-92c53300491e',
-    specialties: ['Organic Produce', 'Local Products', 'Healthy Options'],
-    partnerId: 'farm-to-table',
-    offerId: '6'
-  }
 ];
 
 export const PartnersSection = () => {
@@ -83,15 +37,15 @@ export const PartnersSection = () => {
           {partners.map((partner, index) => (
             <Link 
               key={index} 
-              to={`/marketplace/offer/${partner.offerId}`}
+              to={`/`}
               className="group"
             >
               <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden cursor-pointer">
-                <div className="relative">
+                <div className="relative w-full h-64 p-6">
                   <img
-                    src={`https://images.unsplash.com/${partner.image}?w=400&h=200&fit=crop`}
+                    src={partner.logo}
                     alt={partner.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain transition-transform duration-300"
                   />
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
                     <Star size={16} className="fill-yellow-400 text-yellow-400" />
@@ -104,10 +58,6 @@ export const PartnersSection = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-green-600 transition-colors">
                       {partner.name}
                     </h3>
-                    <div className="flex items-center text-gray-500 text-sm">
-                      <MapPin size={16} className="mr-1" />
-                      {partner.location} • {partner.type}
-                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2">
