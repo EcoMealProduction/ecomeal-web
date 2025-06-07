@@ -37,7 +37,7 @@ export const Navbar = () => {
             <a href="#features" className="text-gray-700 hover:text-green-500 transition-colors font-medium">Features</a>
             <a href="#how-it-works" className="text-gray-700 hover:text-green-500 transition-colors font-medium">How it works</a>
             <a href="#impact" className="text-gray-700 hover:text-green-500 transition-colors font-medium">Impact</a>
-            <a href="#testimonials" className="text-gray-700 hover:text-green-500 transition-colors font-medium">Stories</a>
+            <a href="#testimonials" className="text-gray-700 hover:text-green-500 transition-colors font-medium">Testimonials</a>
           </div>
 
           {/* CTA Buttons and Language Selector */}
